@@ -19,10 +19,10 @@ type LanguageSelectProps = {
 function languageItemLabel(lang: (typeof TARGET_LANGUAGES)[number]) {
     return (
         <span className="flex flex-col items-start gap-0.5 py-0.5 text-left">
-            <span className="font-medium leading-tight text-zinc-900">
+            <span className="font-medium leading-tight text-neutral-950">
                 {lang.nativeLabel}
             </span>
-            <span className="text-xs font-normal leading-tight text-zinc-500">
+            <span className="text-xs font-normal leading-tight text-neutral-600">
                 {lang.label}
             </span>
         </span>
@@ -44,17 +44,17 @@ export function LanguageSelect({ value, onChange, disabled }: LanguageSelectProp
                 <SelectTrigger
                     id={triggerId}
                     title="Chọn một ngôn ngữ đích"
-                    className="h-auto min-h-11 cursor-pointer rounded-xl border-indigo-200 bg-indigo-50/80 py-2.5 text-left hover:bg-indigo-50/90 data-[state=open]:border-indigo-400 data-[state=open]:ring-2 data-[state=open]:ring-indigo-500/20"
-                    iconColor="rgb(79 70 229)"
+                    className="h-auto min-h-11 rounded-xl border-neutral-200 bg-white py-2.5 text-left hover:bg-neutral-50 data-[state=open]:border-neutral-300 data-[state=open]:ring-2 data-[state=open]:ring-neutral-950/10"
+                    iconColor="#171717"
                 >
                     <SelectValue placeholder="Chọn ngôn ngữ đích" />
                 </SelectTrigger>
-                <SelectContent className="rounded-xl border-zinc-200" position="popper">
+                <SelectContent className="rounded-xl border-neutral-200 bg-white" position="popper">
                     {TARGET_LANGUAGES.map((lang) => (
                         <SelectItem
                             key={lang.code}
                             value={lang.code}
-                            className="cursor-pointer rounded-lg py-2 focus:bg-indigo-50"
+                            className="rounded-lg py-2 focus:bg-neutral-100 data-[highlighted]:bg-neutral-100"
                         >
                             {languageItemLabel(lang)}
                         </SelectItem>
