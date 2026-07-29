@@ -9,7 +9,7 @@ import { TranslationResults } from './TranslationResults'
 
 const SOURCE_FIELD_ID = 'source-vi-text'
 /** Debounce tránh spam API mỗi lần gõ. */
-const DEBOUNCE_MS = 2000
+const DEBOUNCE_MS = 1000
 
 function isAbortError(e: unknown): boolean {
     return e instanceof DOMException && e.name === 'AbortError'
