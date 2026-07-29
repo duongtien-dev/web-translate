@@ -1,6 +1,7 @@
 import type { TargetLanguageCode } from '../constants/languages'
 import { getLanguageByCode } from '../constants/languages'
 import { CopyTranslationButton } from './CopyTranslationButton'
+import { ListenTranslationButton } from './ListenTranslationButton'
 import { Spinner3DotsFade } from './Spinner3DotsFade'
 
 type TranslationResultsProps = {
@@ -49,11 +50,19 @@ export function TranslationResults({
                   </h3>
                   <p className="text-xs text-slate-500">{meta?.label}</p>
                 </div>
-                <CopyTranslationButton
-                  text={text}
-                  languageLabel={meta?.label ?? code}
-                  disabled={isTranslating}
-                />
+                <div className="flex flex-wrap items-center gap-2">
+                  <ListenTranslationButton
+                    text={text}
+                    speechLang={meta?.speechLang ?? meta?.htmlLang ?? 'en-US'}
+                    languageLabel={meta?.label ?? code}
+                    disabled={isTranslating}
+                  />
+                  <CopyTranslationButton
+                    text={text}
+                    languageLabel={meta?.label ?? code}
+                    disabled={isTranslating}
+                  />
+                </div>
               </div>
               <div
                 id={blockId}
